@@ -5,36 +5,39 @@
 class Meroxa < Formula
   desc "The Meroxa CLI"
   homepage "https://meroxa.io"
-  version "0.3.4"
+  version "0.3.5"
   license "Apache 2.0"
   bottle :unneeded
 
   if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/meroxa/cli/releases/download/v0.3.4/meroxa_0.3.4_Darwin_x86_64.tar.gz"
-    sha256 "7c18e15217c1dbcdccc638c5a98e69d11a69da238095c6929333cafe45ac7b4a"
+    url "https://github.com/meroxa/cli/releases/download/v0.3.5/meroxa_0.3.5_darwin_amd64.tar.gz"
+    sha256 "afec863632c2002755ca4f8af8193e7f88c270bcd85c554fef25bf78b9714033"
   end
   if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/meroxa/cli/releases/download/v0.3.4/meroxa_0.3.4_Darwin_arm64.tar.gz"
-    sha256 "a08b6188739b60170d6580eb8d568b96087e39af2f4b3425ca5a6a842dc69bf0"
+    url "https://github.com/meroxa/cli/releases/download/v0.3.5/meroxa_0.3.5_darwin_arm64.tar.gz"
+    sha256 "f1826252ed96314d43b96875047ec8c03fb6f67b48f7d30325aa1d563bd7dd80"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/meroxa/cli/releases/download/v0.3.4/meroxa_0.3.4_Linux_x86_64.tar.gz"
-    sha256 "f5cfea8d586b08e98f969cd85f9823497768d362542032caa2f4673c7a8d734d"
+    url "https://github.com/meroxa/cli/releases/download/v0.3.5/meroxa_0.3.5_linux_amd64.tar.gz"
+    sha256 "22aefdac9b06d2d5a7616561a888d9b87ace4b305bffee6f567c909fe40537d7"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/meroxa/cli/releases/download/v0.3.4/meroxa_0.3.4_Linux_arm64.tar.gz"
-    sha256 "258a4acdec5a14934bc48bf972f5e8327c9603f3d78bcb5c826230c11385edb8"
+    url "https://github.com/meroxa/cli/releases/download/v0.3.5/meroxa_0.3.5_linux_arm64.tar.gz"
+    sha256 "9a4c68cee3a9227f68b31d89611fdb8641a0e08d6e1cbf3e885158d377057054"
   end
 
   head "https://github.com/meroxa/cli.git"
 
-  depends_on "go"
-
   def install
     bin.install "meroxa"
+    prefix.install_metafiles
+    bash_completion.install "etc/completion/meroxa.completion.sh"
+    zsh_completion.install "etc/completion/meroxa.completion.zsh" => "meroxa"
+    fish_completion.install "etc/completion/meroxa.completion.fish"
+    man.install "etc/man/man1"
   end
 
   test do
-    shell_output("#{bin}/meroxa version").match(/0.3.4/)
+    shell_output("#{bin}/meroxa version").match(/0.3.5/)
   end
 end
