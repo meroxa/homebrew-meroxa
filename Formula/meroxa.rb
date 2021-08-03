@@ -5,29 +5,29 @@
 class Meroxa < Formula
   desc "The Meroxa CLI"
   homepage "https://meroxa.io"
-  version "0.10.0"
+  version "1.0.0"
   license "Apache 2.0"
   bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/meroxa/cli/releases/download/v0.10.0/meroxa_0.10.0_darwin_amd64.tar.gz"
-      sha256 "2d68ee6b4153edf53aed9ee2ad4ab9b199d198888c4b9ea3a745e8457aea2ce6"
+      url "https://github.com/meroxa/cli/releases/download/v1.0.0/meroxa_1.0.0_darwin_amd64.tar.gz"
+      sha256 "f2cfae8dd1393a7599d2a111cd272eb6cf63fbb4d33e66e3a3b1e34d5a0bee65"
     end
     if Hardware::CPU.arm?
-      url "https://github.com/meroxa/cli/releases/download/v0.10.0/meroxa_0.10.0_darwin_arm64.tar.gz"
-      sha256 "b006f038261496cb4230cac3e1699775b972497e2251f78735db21e6091b9a42"
+      url "https://github.com/meroxa/cli/releases/download/v1.0.0/meroxa_1.0.0_darwin_arm64.tar.gz"
+      sha256 "d9f20cab0e3e3a8e6686c99ac7382c7fc38c7e9033834c9862e43126fe6da9a5"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/meroxa/cli/releases/download/v0.10.0/meroxa_0.10.0_linux_amd64.tar.gz"
-      sha256 "6817b9bd7c54c66b1ea25b42b3465146a8f7899703d8574df10de45fbc153fc2"
+      url "https://github.com/meroxa/cli/releases/download/v1.0.0/meroxa_1.0.0_linux_amd64.tar.gz"
+      sha256 "ff8a8f929fba21cd113c64b028a6f3bf9723eea424083c9ab0825918afae8836"
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/meroxa/cli/releases/download/v0.10.0/meroxa_0.10.0_linux_arm64.tar.gz"
-      sha256 "e978e0bdc465aaca484b013b083de4d74b8c68009f57f1ae0fc69a4f88e62a91"
+      url "https://github.com/meroxa/cli/releases/download/v1.0.0/meroxa_1.0.0_linux_arm64.tar.gz"
+      sha256 "c9ba0a0b10816371ab1a72e3e39e1e9e416dbf31ee9ab460c251971aa0840d8e"
     end
   end
 
@@ -43,6 +43,6 @@ class Meroxa < Formula
   end
 
   test do
-    shell_output("#{bin}/meroxa version").match(/0.10.0/)
+    shell_output("#{bin}/meroxa version").match(/1.0.0/)
   end
 end
