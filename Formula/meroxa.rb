@@ -5,29 +5,29 @@
 class Meroxa < Formula
   desc "The Meroxa CLI"
   homepage "https://meroxa.io"
-  version "1.3.0"
+  version "1.3.1"
   license "Apache 2.0"
   bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/meroxa/cli/releases/download/v1.3.0/meroxa_1.3.0_darwin_amd64.tar.gz"
-      sha256 "00e49d909cc1e9b0dff0f175d31802f36be149838058cbaabf91e3933de18c11"
+      url "https://github.com/meroxa/cli/releases/download/v1.3.1/meroxa_1.3.1_darwin_amd64.tar.gz"
+      sha256 "17be4ff8bf5d96d8c7328387bcf3627cda4325365e8a5311ac7526c8b4c46868"
     end
     if Hardware::CPU.arm?
-      url "https://github.com/meroxa/cli/releases/download/v1.3.0/meroxa_1.3.0_darwin_arm64.tar.gz"
-      sha256 "b9d6faadcde407d30dfee75a18b4b2d4b2233b8779d6192bdc0991382e448b81"
+      url "https://github.com/meroxa/cli/releases/download/v1.3.1/meroxa_1.3.1_darwin_arm64.tar.gz"
+      sha256 "f49d47087ae259a8861296dbda9e9d551aa2ad54be8d40420545b8977ab7bfbb"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/meroxa/cli/releases/download/v1.3.0/meroxa_1.3.0_linux_amd64.tar.gz"
-      sha256 "ee08875abce03c1153eb75cd2cdc05befde6c23ebe24072ae35658c5c527481d"
+      url "https://github.com/meroxa/cli/releases/download/v1.3.1/meroxa_1.3.1_linux_amd64.tar.gz"
+      sha256 "5e647e8db73793c1ec06ae2de1d251cfc53f91b4fd1c472a1c42d75e67ca5c85"
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/meroxa/cli/releases/download/v1.3.0/meroxa_1.3.0_linux_arm64.tar.gz"
-      sha256 "a725e09b6ad7f48fb9a4651ab4df745663372cad0888eb63f7376468ddcede6f"
+      url "https://github.com/meroxa/cli/releases/download/v1.3.1/meroxa_1.3.1_linux_arm64.tar.gz"
+      sha256 "00eb926f9f5e299bd4287b939ed531462d378cbe824bef6d1b4bb60292f3d847"
     end
   end
 
@@ -43,6 +43,6 @@ class Meroxa < Formula
   end
 
   test do
-    shell_output("#{bin}/meroxa version").match(/1.3.0/)
+    shell_output("#{bin}/meroxa version").match(/1.3.1/)
   end
 end
