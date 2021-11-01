@@ -7,7 +7,6 @@ class Meroxa < Formula
   homepage "https://meroxa.io"
   version "1.4.0"
   license "Apache 2.0"
-  bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
