@@ -5,44 +5,70 @@
 class Meroxa < Formula
   desc "The Meroxa CLI"
   homepage "https://meroxa.io"
-  version "1.4.0"
+  version "1.5.0"
   license "Apache 2.0"
-  bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/meroxa/cli/releases/download/v1.4.0/meroxa_1.4.0_darwin_amd64.tar.gz"
-      sha256 "87bc40a9667e7b9a3f8dc1d61eabe20f2776eb3ac44a7f3b80e8c2b3f451a6d2"
+      url "https://github.com/meroxa/cli/releases/download/v1.5.0/meroxa_1.5.0_darwin_amd64.tar.gz"
+      sha256 "6cceccdce8764cc6797acedb57c1688423b4f33a042d5e41514da265c23e61c9"
+
+      def install
+        bin.install "meroxa"
+        prefix.install_metafiles
+        bash_completion.install "etc/completion/meroxa.completion.sh"
+        zsh_completion.install "etc/completion/meroxa.completion.zsh" => "meroxa"
+        fish_completion.install "etc/completion/meroxa.completion.fish"
+        man.install "etc/man/man1"
+      end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/meroxa/cli/releases/download/v1.4.0/meroxa_1.4.0_darwin_arm64.tar.gz"
-      sha256 "2a351e5c83a422553e44009ea94df8ada2f937999154d37c5754866ad2b80d01"
+      url "https://github.com/meroxa/cli/releases/download/v1.5.0/meroxa_1.5.0_darwin_arm64.tar.gz"
+      sha256 "6376ce16181f7f4d88de3c98dae25b14e9198d12abb8a4029d931b3fad5c3f07"
+
+      def install
+        bin.install "meroxa"
+        prefix.install_metafiles
+        bash_completion.install "etc/completion/meroxa.completion.sh"
+        zsh_completion.install "etc/completion/meroxa.completion.zsh" => "meroxa"
+        fish_completion.install "etc/completion/meroxa.completion.fish"
+        man.install "etc/man/man1"
+      end
     end
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/meroxa/cli/releases/download/v1.4.0/meroxa_1.4.0_linux_amd64.tar.gz"
-      sha256 "02dfe2929ee0c49019544d0b5cab98ac0f596dd1e921b5cdc9f13bb3a05dfe0d"
-    end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/meroxa/cli/releases/download/v1.4.0/meroxa_1.4.0_linux_arm64.tar.gz"
-      sha256 "9afdc222aa2c67445f14511f564bb628bd95cfed78a8fd9edd520cf8167f6b54"
+      url "https://github.com/meroxa/cli/releases/download/v1.5.0/meroxa_1.5.0_linux_arm64.tar.gz"
+      sha256 "7efb37d1eddea4a5c02b8246f8aee6733c672590ac4434c4bc82fd1f706e7d19"
+
+      def install
+        bin.install "meroxa"
+        prefix.install_metafiles
+        bash_completion.install "etc/completion/meroxa.completion.sh"
+        zsh_completion.install "etc/completion/meroxa.completion.zsh" => "meroxa"
+        fish_completion.install "etc/completion/meroxa.completion.fish"
+        man.install "etc/man/man1"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/meroxa/cli/releases/download/v1.5.0/meroxa_1.5.0_linux_amd64.tar.gz"
+      sha256 "51988a55b6e64fb83d5f888def3e0b8d0aab48e7d87f109399044319c912e0d7"
+
+      def install
+        bin.install "meroxa"
+        prefix.install_metafiles
+        bash_completion.install "etc/completion/meroxa.completion.sh"
+        zsh_completion.install "etc/completion/meroxa.completion.zsh" => "meroxa"
+        fish_completion.install "etc/completion/meroxa.completion.fish"
+        man.install "etc/man/man1"
+      end
     end
   end
 
   head "https://github.com/meroxa/cli.git"
 
-  def install
-    bin.install "meroxa"
-    prefix.install_metafiles
-    bash_completion.install "etc/completion/meroxa.completion.sh"
-    zsh_completion.install "etc/completion/meroxa.completion.zsh" => "meroxa"
-    fish_completion.install "etc/completion/meroxa.completion.fish"
-    man.install "etc/man/man1"
-  end
-
   test do
-    shell_output("#{bin}/meroxa version").match(/1.4.0/)
+    shell_output("#{bin}/meroxa version").match(/1.5.0/)
   end
 end
