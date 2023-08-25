@@ -5,13 +5,13 @@
 class Meroxa < Formula
   desc "The Meroxa CLI"
   homepage "https://meroxa.io"
-  version "2.22.0"
+  version "2.23.0"
   license "Apache 2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/meroxa/cli/releases/download/v2.22.0/meroxa_2.22.0_darwin_amd64.tar.gz"
-      sha256 "a410f3a13981518693c1e1d4b6bb8e0f468d2b16e8a63cf068629a82dfae9467"
+      url "https://github.com/meroxa/cli/releases/download/v2.23.0/meroxa_2.23.0_darwin_amd64.tar.gz"
+      sha256 "780e144a3e0927b6167e1834fdb05850acbce2abd9a51ddf53fdda9acb24fdf1"
 
       def install
         bin.install "meroxa"
@@ -23,8 +23,8 @@ class Meroxa < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/meroxa/cli/releases/download/v2.22.0/meroxa_2.22.0_darwin_arm64.tar.gz"
-      sha256 "907e11f123a53bf3ba0da8c30ab9f200cebb641ea406a4d7aa0da8550a525c93"
+      url "https://github.com/meroxa/cli/releases/download/v2.23.0/meroxa_2.23.0_darwin_arm64.tar.gz"
+      sha256 "33f6347c7afad3389b7234861b8925afc8df6e3dc0623b8ace05a850a8061734"
 
       def install
         bin.install "meroxa"
@@ -39,8 +39,8 @@ class Meroxa < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/meroxa/cli/releases/download/v2.22.0/meroxa_2.22.0_linux_arm64.tar.gz"
-      sha256 "68fa8179ee3b4b69e873867a9e26a71c66849e4df78fe492a10837c5b5073f21"
+      url "https://github.com/meroxa/cli/releases/download/v2.23.0/meroxa_2.23.0_linux_arm64.tar.gz"
+      sha256 "2310c31d413d6952a01c81ae67f8b7ddb35eb01210b190bbda1556910ca930a1"
 
       def install
         bin.install "meroxa"
@@ -52,8 +52,8 @@ class Meroxa < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/meroxa/cli/releases/download/v2.22.0/meroxa_2.22.0_linux_amd64.tar.gz"
-      sha256 "ccfe7fd97fae7cdc32af32f7726eb36421f142334642c9dc3f71da2289e8dea2"
+      url "https://github.com/meroxa/cli/releases/download/v2.23.0/meroxa_2.23.0_linux_amd64.tar.gz"
+      sha256 "5197c9a6ebf8029f77396ea388bf6f9a9e84f50c71d5b4d13dd18bd4a9ff4ddd"
 
       def install
         bin.install "meroxa"
@@ -69,6 +69,6 @@ class Meroxa < Formula
   head "https://github.com/meroxa/cli.git"
 
   test do
-    shell_output("#{bin}/meroxa version").match(/2.22.0/)
+    shell_output("#{bin}/meroxa version").match(/2.23.0/)
   end
 end
